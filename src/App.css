@@ -1,0 +1,766 @@
+/* Professional CSS Stylesheet for Financial Dashboard with Red Glowing Effects */
+
+/* Import fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+/* CSS Variables for consistent theming */
+:root {
+  /* Color palette */
+  --color-text-primary: #1a1a1a;
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #fdf2f2;
+  --color-primary: #0a0101;
+  --color-primary-light: #fecaca;
+  --color-primary-glow: rgba(220, 38, 38, 0.4);
+  --color-border: #fca5a5;
+  --color-dark: #0c0fa7;
+  --color-success: #10b981;
+  --color-success-glow: rgba(16, 185, 129, 0.4);
+  --color-warning: #f59e0b;
+  --color-warning-glow: rgba(245, 158, 11, 0.4);
+  --color-danger: #0a0202;
+  --color-danger-glow: rgba(239, 68, 68, 0.4);
+
+  /* Typography */
+  --font-primary: "Poppins", sans-serif;
+
+  /* Spacing */
+  --spacing-xs: 10px;
+  --spacing-sm: 20px;
+  --spacing-md: 30px;
+  --spacing-lg: 40px;
+
+  /* Transitions */
+  --transition-standard: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* Shadows and Glows */
+  --shadow-sm: 0 2px 8px rgba(220, 38, 38, 0.1);
+  --shadow-md: 0 4px 12px rgba(220, 38, 38, 0.15);
+  --glow-primary: 0 0 15px var(--color-primary-glow);
+  --glow-success: 0 0 15px var(--color-success-glow);
+  --glow-warning: 0 0 15px var(--color-warning-glow);
+  --glow-danger: 0 0 15px var(--color-danger-glow);
+  --glow-subtle: 0 0 10px rgba(220, 38, 38, 0.2);
+}
+
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-primary);
+}
+
+body {
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+}
+
+a {
+  text-decoration: none;
+  transition: color var(--transition-standard), text-shadow var(--transition-standard);
+}
+
+a:hover {
+  color: var(--color-primary) !important;
+  text-shadow: 0 0 8px var(--color-primary-glow);
+}
+
+/* Glowing button styles */
+.btn {
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all var(--transition-standard);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  box-shadow: var(--glow-primary);
+  transform: translateY(-2px);
+}
+
+.btn-success {
+  background-color: var(--color-success);
+  color: white;
+}
+
+.btn-success:hover {
+  box-shadow: var(--glow-success);
+  transform: translateY(-2px);
+}
+
+.btn-warning {
+  background-color: var(--color-warning);
+  color: white;
+}
+
+.btn-warning:hover {
+  box-shadow: var(--glow-warning);
+  transform: translateY(-2px);
+}
+
+.btn-danger {
+  background-color: var(--color-danger);
+  color: white;
+}
+
+.btn-danger:hover {
+  box-shadow: var(--glow-danger);
+  transform: translateY(-2px);
+}
+
+/* Layout components */
+.app {
+  display: flex;
+  overflow: hidden;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.routes {
+  padding: var(--spacing-sm);
+  flex: 1;
+}
+
+/* Navigation with glow effects */
+.navbar {
+  background-color: var(--color-dark);
+  box-shadow: 0 2px 10px rgba(220, 38, 38, 0.2);
+}
+
+.nav-container {
+  position: relative;
+  width: 300px;
+  height: 100vh;
+  background-color: var(--color-dark);
+}
+
+.logo-container {
+  display: flex;
+  padding: var(--spacing-sm);
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  margin: 10px 0 0 15px;
+  transition: filter var(--transition-standard);
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 8px var(--color-primary-glow));
+}
+
+.logo a {
+  letter-spacing: 1.2px;
+  color: white;
+}
+
+.menu {
+  color: white;
+  margin: var(--spacing-xs);
+  border-radius: 10px;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: var(--color-dark);
+  width: fit-content;
+  list-style-type: none;
+}
+
+.menu-item {
+  margin-bottom: var(--spacing-xs);
+  transition: transform var(--transition-standard);
+}
+
+.menu-item:hover {
+  transform: translateX(5px);
+}
+
+.menu-icon {
+  color: var(--color-primary-light);
+  margin-right: var(--spacing-xs);
+  transition: filter var(--transition-standard);
+}
+
+.menu-item:hover .menu-icon {
+  filter: drop-shadow(0 0 5px var(--color-primary-glow));
+}
+
+.link {
+  font-size: 14px;
+  color: white;
+  transition: text-shadow var(--transition-standard);
+}
+
+.link:hover {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.menu-control-container {
+  width: 50px;
+  height: 40px;
+  border-radius: 6px;
+  display: none !important;
+  position: absolute !important;
+  right: var(--spacing-xs) !important;
+  top: 25px !important;
+  font-size: 1.2rem !important;
+  background-color: var(--color-bg-secondary) !important;
+  border: none !important;
+  transition: box-shadow var(--transition-standard) !important;
+}
+
+.menu-control-container:hover {
+  box-shadow: var(--glow-primary) !important;
+}
+
+/* Loading state with pulsing glow */
+.loader {
+  height: 81vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader::after {
+  content: "";
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid var(--color-primary-light);
+  border-top-color: var(--color-primary);
+  animation: spin 1s linear infinite, glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px var(--color-primary-glow);
+  }
+  to {
+    box-shadow: 0 0 20px var(--color-primary-glow);
+  }
+}
+
+/* Pulsing glow animation */
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 5px var(--color-primary-glow);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--color-primary-glow);
+  }
+  100% {
+    box-shadow: 0 0 5px var(--color-primary-glow);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+/* Cryptocurrency details with glowing effects */
+.coin-detail-container {
+  margin: var(--spacing-md);
+}
+
+.coin-heading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--spacing-sm) 0;
+  gap: var(--spacing-xs);
+}
+
+.coin-heading-container .coin-name {
+  font-weight: 700;
+  color: var(--color-primary);
+  text-shadow: 0 0 10px var(--color-primary-glow);
+}
+
+.coin-heading-container p {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: var(--spacing-sm);
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--spacing-lg);
+}
+
+.stats-container h2 {
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-top: var(--spacing-sm);
+  color: var(--color-primary);
+  text-shadow: 0 0 8px var(--color-primary-glow);
+}
+
+.coin-details-heading {
+  font-weight: 700 !important;
+  margin-top: var(--spacing-sm) !important;
+  color: var(--color-primary) !important;
+  text-shadow: 0 0 8px var(--color-primary-glow) !important;
+}
+
+.coin-stats {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 1rem;
+  opacity: 0.9;
+  padding: var(--spacing-sm);
+  transition: all var(--transition-standard);
+}
+
+.coin-stats-name {
+  display: flex;
+  gap: var(--spacing-xs);
+  font-size: 1rem;
+}
+
+.stats {
+  font-weight: 600;
+}
+
+.coin-value-statistics-heading p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* Coin description and links with glow effects */
+.coin-desc-link {
+  display: flex;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-sm);
+}
+
+.coin-desc-link h2 {
+  font-weight: 700;
+  color: var(--color-primary);
+  text-shadow: 0 0 8px var(--color-primary-glow);
+}
+
+.coin-desc-link p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.coin-desc-link a {
+  color: var(--color-primary);
+  transition: all var(--transition-standard);
+}
+
+.coin-desc-link a:hover {
+  text-shadow: 0 0 8px var(--color-primary-glow);
+}
+
+.coin-desc-link h3 {
+  font-weight: 700;
+}
+
+.coin-desc {
+  flex: 0.5;
+}
+
+.coin-links {
+  padding: 0 var(--spacing-sm);
+  flex: 0.5;
+}
+
+.coin-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--spacing-sm);
+  transition: all var(--transition-standard);
+}
+
+.link-name {
+  text-transform: capitalize;
+  font-size: 1rem;
+}
+
+.coin-link a {
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.coin-link:hover,
+.coin-stats:hover {
+  background-color: var(--color-bg-secondary);
+  box-shadow: var(--glow-subtle);
+  transform: translateX(5px);
+}
+
+/* News section with glowing cards */
+.select-news {
+  width: 180px;
+}
+
+.news-card {
+  min-height: 300px !important;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-standard);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--glow-primary);
+}
+
+.news-image-container {
+  display: flex !important;
+  justify-content: space-between !important;
+}
+
+.news-title {
+  width: 70%;
+  font-weight: 600;
+}
+
+.news-image-container .img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+  transition: all var(--transition-standard);
+}
+
+.news-card:hover .img {
+  box-shadow: 0 0 10px rgba(220, 38, 38, 0.2);
+}
+
+.news-card p {
+  color: var(--color-text-primary);
+  margin: var(--spacing-xs) 0 !important;
+}
+
+.provider-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.provider-name {
+  margin-left: var(--spacing-xs);
+  font-size: 0.9rem;
+}
+
+/* Chart components with glowing highlights */
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  color: var(--color-primary);
+}
+
+.chart-title {
+  color: var(--color-primary) !important;
+  font-weight: 600;
+  text-shadow: 0 0 8px var(--color-primary-glow);
+}
+
+.price-container {
+  display: flex !important;
+  gap: var(--spacing-sm) !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+}
+
+.price-change {
+  font-weight: 700 !important;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all var(--transition-standard);
+}
+
+.price-change.positive {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--color-success);
+}
+
+.price-change.positive:hover {
+  box-shadow: var(--glow-success);
+}
+
+.price-change.negative {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--color-danger);
+}
+
+.price-change.negative:hover {
+  box-shadow: var(--glow-danger);
+}
+
+.current-price {
+  margin-top: 0 !important;
+  font-weight: 700 !important;
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  text-shadow: 0 0 10px var(--color-primary-glow);
+}
+
+/* Home page components with glowing effects */
+.home-heading-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--spacing-lg);
+}
+
+.show-more {
+  margin-top: 0 !important;
+  color: var(--color-primary);
+  font-weight: 500;
+  transition: all var(--transition-standard);
+}
+
+.show-more:hover {
+  text-shadow: 0 0 8px var(--color-primary-glow);
+  transform: translateX(5px);
+}
+
+.exchange-image {
+  margin: 0 var(--spacing-xs) !important;
+  transition: all var(--transition-standard);
+}
+
+.exchange-image:hover {
+  filter: drop-shadow(0 0 5px var(--color-primary-glow));
+}
+
+.search-crypto {
+  margin: var(--spacing-sm) auto var(--spacing-md) auto;
+  width: 250px;
+  position: relative;
+}
+
+.search-crypto input {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-standard);
+}
+
+.search-crypto input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: var(--glow-primary);
+}
+
+.crypto-card-container {
+  min-height: 65vh !important;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--spacing-sm);
+}
+
+.crypto-card {
+  min-width: 250px;
+  max-height: 200px;
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-standard);
+  overflow: hidden;
+  background-color: var(--color-bg-primary);
+}
+
+.crypto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--glow-primary);
+}
+
+.crypto-card .crypto-image {
+  width: 40px;
+  margin-top: var(--spacing-xs);
+  object-fit: cover;
+  height: 40px;
+  transition: all var(--transition-standard);
+}
+
+.crypto-card:hover .crypto-image {
+  filter: drop-shadow(0 0 5px var(--color-primary-glow));
+}
+
+.select-timeperiod {
+  width: 200px !important;
+  margin: var(--spacing-sm) 0 !important;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-standard);
+}
+
+.select-timeperiod:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: var(--glow-primary);
+}
+
+/* Highlight important data with glow */
+.highlight {
+  position: relative;
+  z-index: 1;
+}
+
+.highlight::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-primary-light);
+  z-index: -1;
+  border-radius: 4px;
+  opacity: 0.5;
+  animation: pulse-glow 2s infinite;
+}
+
+/* Footer with glowing effect */
+.footer {
+  background-color: var(--color-dark);
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-sm);
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+  animation: glow-line 3s infinite;
+}
+
+@keyframes glow-line {
+  0% {
+    box-shadow: 0 0 5px var(--color-primary-glow);
+  }
+  50% {
+    box-shadow: 0 0 15px var(--color-primary-glow);
+  }
+  100% {
+    box-shadow: 0 0 5px var(--color-primary-glow);
+  }
+}
+
+.footer-heading {
+  letter-spacing: 1.2px;
+  color: rgb(252, 252, 252);
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: var(--spacing-xs);
+  text-shadow: 0 0 10px rgb(255, 2, 2);
+}
+
+/* Responsive design */
+@media screen and (min-width: 1001px) {
+  .main {
+    min-width: calc(100% - 300px);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .app {
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .navbar {
+    background-color: blue;
+    box-shadow: 0 2px 10px rgba(0, 0, 255, 0.2); 
+  }
+  
+
+  .main {
+    flex: 1;
+    margin-top: 90px;
+  }
+
+  .nav-container {
+    height: auto;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+  }
+
+  .menu-control-container {
+    display: block !important;
+  }
+
+  .menu {
+    position: absolute;
+    top: 100px;
+    right: var(--spacing-xs);
+  }
+
+  .home-title {
+    font-size: 1.4rem !important;
+  }
+
+  .show-more {
+    font-size: 1.3rem !important;
+  }
+
+  .stats-container {
+    flex-direction: column;
+  }
+
+  .coin-desc-link {
+    flex-direction: column;
+  }
+
+  .stats-container h2 {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .coin-links {
+    padding: 0;
+  }
+
+  .coin-detail-container {
+    margin: 0;
+  }
+
+  .heading {
+    margin-top: var(--spacing-sm);
+  }
+}
+
